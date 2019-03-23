@@ -4,16 +4,14 @@ import os from 'os';
 import path from 'path';
 import {createDirectory} from 'jest-util';
 import rimraf from 'rimraf';
-import execa, {type SyncResult, type ThenableChildProcess} from 'execa';
+import execa from 'execa';
 import {Writable} from 'readable-stream';
-import stripAnsi from 'strip-ansi';
 
 const CLI_PATH = path.resolve(__dirname, '../packages/cli/build/bin.js');
 
 type RunCliOptions = {
   nodeOptions?: string,
   nodePath?: string,
-  stripAnsi?: boolean, // remove colors from stdout and stderr,
   timeout?: number, // kill the process after X milliseconds
 };
 
